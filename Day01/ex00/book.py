@@ -1,3 +1,4 @@
+
 import datetime
 from recipe import Recipe
 
@@ -24,11 +25,11 @@ class Book:
         for element in self.recipes_list:
             for el in self.recipes_list[element]:
                 if el.name == name:
-                    print ('Name:', el.name)
+                    el.recipe_print()
         
     def add_recipe(self, recipe):
         if isinstance(recipe, Recipe) == True:       
-            if recipe not in self.recipes_list:
+            if recipe not in self.recipes_list[recipe.recipe_type]:
                 self.recipes_list[recipe.recipe_type].append(recipe)
             self.last_update = datetime.datetime.now()
         else:
